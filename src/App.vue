@@ -46,7 +46,7 @@ function incrementar() {
 <template>
   <!-- Template do componente baseado em HTML -->
   <button @click="incrementar">+</button>
-  <button @click="decrementarContador">-</button>
+  <button @click="decrementar">-</button>
   <button @click="resetar">C</button>
   <p>Valor do contador é: {{ contador }}</p>
 </template>
