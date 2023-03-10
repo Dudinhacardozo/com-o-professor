@@ -1,59 +1,45 @@
 <script setup>
+    const nome = 'Maria Eduarda'
+    const idade = 16
 
+    function inverter(texto) {
+        return texto.split('').reverse().join('')
+    }
 
-
-// Lógica do componente
-//   export default {
-// data() {
-// return {
-//   contador: 10
-//   }
-// },
-// methods: {
-//  incrementarContador() {
-//   this.contador++
-//   },
-//  decrementarContador() {
-//    this.contador--
-//   }
-//  },
-// resetar(){
-// this.contador = 0
-//   },
-//  mounted() {
-//   console.log(`O valor inicial do contador é ${this.contador}.`)
-//  }
-// }
-//
-
-import { onMounted, ref } from 'vue'
-const contador = ref(10)
-function incrementar() {
-  contador.value++
-  console.log(contador.value)
-} function decrementar() {
-  if (contador.value > 0) {
-    contador.value--
-  }
-} function resetar() {
-  contador.value = 0
-} onMounted(() => {
-  console.log('Componente montado')
-  console.log('Contador: ' + contador.value)
-})
+    function saudacao() {
+        return `Olá, ${nome}!`
+    }
+    
 </script>
 
 <template>
-  <!-- Template do componente baseado em HTML -->
-  <button @click="incrementar">+</button>
-  <button @click="decrementar">-</button>
-  <button @click="resetar">C</button>
-  <p>Valor do contador é: {{ contador }}</p>
+    <div class="info">
+        <h1>Exemplo 1 - Mostrando informações na tela</h1>
+        <p>Nome: {{ nome }} </p>
+        <p>Idade: {{ idade }}  anos</p>
+        <hr />
+        <p>Para completar 50 anos faltam: {{ 50 - idade }}  anos</p>
+        <p>O nome tem {{ nome.length }}  caracteres</p>
+        <p>O nome invertido é: {{ inverter(nome) }} </p>
+        <hr />
+        <p> Exemplo de saudação usando função</p>
+        <p> {{ saudacao() }}  </p>
+        <hr />
+        <p> o numero é {{ numero }} e o seu dobro é: {{ 2 * numero }}</p>
+    </div>
 </template>
 
-<style escoped>
-/* Estilos do componente baseado em CSS */
-button {
+<style scoped>
+.info {
+  background-color: rgba(35,12,22,1);
+  padding: 20px 30px;
+  color: rgb(183, 210, 219);
+  border-radius: 10px;
+}
+
+h1 {
+  color: white;
   font-weight: bold;
+  font-size: 1.5em;
 }
 </style>
