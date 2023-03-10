@@ -1,7 +1,13 @@
 <script setup>
+import { ref } from 'vue';
+
     const nome = 'Maria Eduarda'
     const idade = 16
-
+    const numero = 15
+    const valor1 = 0
+    const valor2 = 0
+    valor1 = ref()
+    valor2 = ref()
     function inverter(texto) {
         return texto.split('').reverse().join('')
     }
@@ -9,7 +15,6 @@
     function saudacao() {
         return `Olá, ${nome}!`
     }
-    
 </script>
 
 <template>
@@ -26,7 +31,10 @@
         <p> {{ saudacao() }}  </p>
         <hr />
         <p> o numero é {{ numero }} e o seu dobro é: {{ 2 * numero }}</p>
-    </div>
+        <p><input v-model="valor1" /></p>
+        <p><input v-model="valor2" /></p>
+        <p>A soma dos números acima é {{ valor1 + valor2 }}</p>
+     </div>
 </template>
 
 <style scoped>
