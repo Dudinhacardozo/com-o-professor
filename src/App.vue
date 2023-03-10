@@ -4,10 +4,11 @@ import { ref } from 'vue';
     const nome = 'Maria Eduarda'
     const idade = 16
     const numero = 15
-    const valor1 = 0
-    const valor2 = 0
-    valor1 = ref()
-    valor2 = ref()
+    const valor1 = ref(0)
+    const valor2 = ref(10)
+    
+    
+    
     function inverter(texto) {
         return texto.split('').reverse().join('')
     }
@@ -15,6 +16,9 @@ import { ref } from 'vue';
     function saudacao() {
         return `Olá, ${nome}!`
     }
+    function somapar(){
+      return((valor1.value + valor2.value) % 2 === 0)
+    };
 </script>
 
 <template>
@@ -33,8 +37,13 @@ import { ref } from 'vue';
         <p> o numero é {{ numero }} e o seu dobro é: {{ 2 * numero }}</p>
         <p><input v-model="valor1" /></p>
         <p><input v-model="valor2" /></p>
-        <p>A soma dos números acima é {{ valor1 + valor2 }}</p>
+        <p>A soma dos números acima é {{ parseInt(valor1) + parseInt(valor2) }}</p>
+        <div>
+      <p v-if="( valor1 * 1 + valor2 * 1) % 2 === 0">esse número é par </p>
+      <p id="vermelho" v-if="(valor1 * 1 + valor2 * 1)> 10">O número é maior que 10</p>
      </div>
+     </div>
+     
 </template>
 
 <style scoped>
@@ -49,5 +58,8 @@ h1 {
   color: white;
   font-weight: bold;
   font-size: 1.5em;
+}
+#vermelho{
+  color:red;
 }
 </style>
